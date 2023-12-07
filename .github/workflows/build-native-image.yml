@@ -22,7 +22,6 @@ jobs:
       uses: graalvm/setup-graalvm@v1
       with:
         java-version: '21'
-        components: 'native-image'
         github-token: ${{ secrets.GITHUB_TOKEN }}
         # server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         # settings-path: ${{ github.workspace }} # location for the settings.xml file
