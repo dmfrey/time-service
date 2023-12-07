@@ -100,7 +100,7 @@
 						<artifactId>spring-boot-maven-plugin</artifactId>
 						<configuration>
 							<image>
-								<imageName>ghcr.io/dmfrey/${project.artifactId}:${project.version}</imageName>
+								<name>ghcr.io/dmfrey/${project.artifactId}:${project.version}</name>
 								<publish>true</publish>
 								<docker>
 									<publishRegistry>
