@@ -12,7 +12,7 @@
 
 	<groupId>com.broadcom.spring-consulting</groupId>
 	<artifactId>time-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>time-service</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -77,5 +77,48 @@
 		</plugins>
 
 	</build>
+
+	<profiles>
+
+		<profile>
+			<id>github</id>
+
+			<build>
+
+				<plugins>
+
+					<plugin>
+						<groupId>org.graalvm.buildtools</groupId>
+						<artifactId>native-maven-plugin</artifactId>
+						<configuration>
+							<mainClass>com.broadcom.springconsulting.timeservice.Application</mainClass>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+						<configuration>
+							<image>
+								<imageName>ghcr.io/dmfrey/${project.artifactId}:${project.version}</imageName>
+								<publish>true</publish>
+								<docker>
+									<publishRegistry>
+										<username>${env.GITHUB_USER}</username>
+										<password>${env.GITHUB_TOKEN}</password>
+										<url>https://ghcr.io</url>
+									</publishRegistry>
+								</docker>
+							</image>
+						</configuration>
+					</plugin>
+
+				</plugins>
+
+			</build>
+
+		</profile>
+
+	</profiles>
 
 </project>
