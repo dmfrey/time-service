@@ -18,7 +18,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up JDK 11
+    - name: Set up GraalVM 21
       uses: graalvm/setup-graalvm@v1
       with:
         java-version: '21'
@@ -33,8 +33,8 @@ jobs:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
-    - name: Build with Maven
-      run: mvn -B -ntp package
+    - name: Build Image with Maven
+      run: mvn -B -ntp spring-boot:build-image
       env:
         NO_DOCKER: ${{ runner.os != 'Linux' }}
 
