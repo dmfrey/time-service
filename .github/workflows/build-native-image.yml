@@ -38,10 +38,11 @@ jobs:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
     - name: Set up GraalVM 21
-      uses: graalvm/setup-graalvm@v1
+      uses: actions/setup-java@v3
       with:
         java-version: '21'
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        distribution: 'temurin'
+        # github-token: ${{ secrets.GITHUB_TOKEN }}
         # server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         # settings-path: ${{ github.workspace }} # location for the settings.xml file
 
@@ -53,7 +54,7 @@ jobs:
         restore-keys: ${{ runner.os }}-m2
 
     - name: Build Image with Maven
-      run: mvn -B -Pgithub -ntp spring-boot:build-image
+      run: mvn -B -ntp spring-boot:build-image
       env:
         NO_DOCKER: ${{ runner.os != 'Linux' }}
         GITHUB_USER: ${{ github.actor }}
