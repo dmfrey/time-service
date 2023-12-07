@@ -102,14 +102,14 @@
 							<image>
 								<name>ghcr.io/dmfrey/${project.artifactId}:${project.version}</name>
 								<publish>true</publish>
-								<docker>
-									<publishRegistry>
-										<username>${env.GITHUB_USER}</username>
-										<password>${env.GITHUB_TOKEN}</password>
-										<url>https://ghcr.io</url>
-									</publishRegistry>
-								</docker>
 							</image>
+							<docker>
+								<publishRegistry>
+									<username>${env.GITHUB_USER}</username>
+									<password>${env.GITHUB_TOKEN}</password>
+									<url>https://ghcr.io</url>
+								</publishRegistry>
+							</docker>
 						</configuration>
 					</plugin>
 
