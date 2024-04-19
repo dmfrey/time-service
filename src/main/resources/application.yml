@@ -27,6 +27,8 @@ management:
           show-details: always
 
   metrics:
+    tags:
+      application: ${spring.application.name}
     distribution:
       percentiles-histogram:
         http:
@@ -38,6 +40,9 @@ management:
     sampling:
       probability: 1.0
 
-#  otlp:
-#    tracing:
-#      endpoint:
+  otlp:
+    metrics:
+      export:
+        url:
+    tracing:
+      endpoint:
