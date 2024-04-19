@@ -1,0 +1,39 @@
+logging.level:
+  liquibase: info
+  org.springframework.jdbc: info
+  org.springframework.web: info
+  com.broadcom.springconsulting.timeservice: debug
+
+spring:
+
+  application:
+    name: time-server
+
+  main:
+    allow-bean-definition-overriding: true
+
+management:
+
+  endpoints:
+    web.exposure.include: '*'
+
+  endpoint:
+    health:
+      show-details: ALWAYS
+      group:
+        liveness:
+          show-details: always
+        readiness:
+          show-details: always
+
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1.0

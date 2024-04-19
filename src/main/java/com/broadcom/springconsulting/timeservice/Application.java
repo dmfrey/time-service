@@ -18,25 +18,3 @@ public class Application {
 
 }
 
-@RestController
-class TimeEndpoint {
-
-	@GetMapping( "/currentTime" )
-	Map<String, Instant> currentTime( final TimeService timeService ) {
-
-		Instant currentTime = timeService.calculate();
-
-		return Map.of("current_time", currentTime );
-	}
-
-}
-
-@Component
-class TimeService {
-
-	Instant calculate() {
-
-		return Instant.now();
-	}
-
-}

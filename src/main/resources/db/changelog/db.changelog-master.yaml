@@ -1,0 +1,21 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1
+      author: test
+      changes:
+        - createTable:
+            tableName: time_log
+            schemaName: public
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: time
+                  type: timestamp
+                  constraints:
+                    nullable: false
