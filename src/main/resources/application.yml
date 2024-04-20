@@ -7,7 +7,7 @@ logging.level:
 spring:
 
   application:
-    name: time-server
+    name: time-service
 
   main:
     allow-bean-definition-overriding: true
