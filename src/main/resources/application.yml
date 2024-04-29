@@ -40,7 +40,7 @@ management:
             requests: true
 
   tracing:
-    enabled: false
+    enabled: true
     sampling:
       probability: 1.0
 
