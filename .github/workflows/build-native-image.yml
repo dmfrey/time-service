@@ -38,13 +38,24 @@ jobs:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
     - name: Set up GraalVM 21
-      uses: actions/setup-java@v3
+#      uses: actions/setup-java@v3
+      uses: graalvm/setup-graalvm@v1
       with:
+        version: 'latest'
         java-version: '21'
-        distribution: 'temurin'
+        components: 'native-image'
+#        distribution: 'temurin'
         # github-token: ${{ secrets.GITHUB_TOKEN }}
         # server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         # settings-path: ${{ github.workspace }} # location for the settings.xml file
+
+    - name: Validate GraalVM
+      run: |
+        echo "GRAALVM_HOME: $GRAALVM_HOME"
+        echo "JAVA_HOME: $JAVA_HOME"
+        java --version
+        gu --version
+        native-image --version
 
     - name: Cache Maven packages
       uses: actions/cache@v2
@@ -54,7 +65,7 @@ jobs:
         restore-keys: ${{ runner.os }}-m2
 
     - name: Build Image with Maven
-      run: mvn -B -Pgithub -ntp spring-boot:build-image
+      run: mvn -B -Pnative,github -ntp spring-boot:build-image
       env:
         NO_DOCKER: ${{ runner.os != 'Linux' }}
         GITHUB_USER: ${{ github.actor }}
