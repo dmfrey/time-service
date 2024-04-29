@@ -49,4 +49,4 @@ management:
       export:
         url:
     tracing:
-      endpoint:
+      endpoint: http://otel-collector-opentelemetry-collector.monitor.svc.cluster.local:4318/v1/traces
