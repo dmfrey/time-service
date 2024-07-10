@@ -13,6 +13,10 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
+  docker:
+    compose:
+      lifecycle-management: start_only
+
   threads:
     virtual:
       enabled: true
