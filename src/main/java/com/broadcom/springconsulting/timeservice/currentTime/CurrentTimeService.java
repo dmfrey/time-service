@@ -1,22 +1,21 @@
-package com.broadcom.springconsulting.timeservice.currentTime.application;
+package com.broadcom.springconsulting.timeservice.currentTime;
 
-import com.broadcom.springconsulting.timeservice.currentTime.application.model.CurrentTimeModel;
-import com.broadcom.springconsulting.timeservice.currentTime.application.ports.in.CurrentTimeUseCase;
-import com.broadcom.springconsulting.timeservice.currentTime.application.ports.out.SaveCurrentTime;
-import com.broadcom.springconsulting.timeservice.currentTime.application.services.CurrentTimeGenerator;
+import com.broadcom.springconsulting.timeservice.services.CurrentTimeGenerator;
+import org.jmolecules.architecture.hexagonal.Application;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Application
+@Service
 class CurrentTimeService implements CurrentTimeUseCase {
 
     private static final Logger log = LoggerFactory.getLogger( CurrentTimeService.class );
 
     private final CurrentTimeGenerator generator;
-    private final SaveCurrentTime saveCurrentTimePort;
+    private final SaveCurrentTimePort saveCurrentTimePort;
 
-    CurrentTimeService( final CurrentTimeGenerator generator, final SaveCurrentTime saveCurrentTimePort ) {
+    CurrentTimeService( final CurrentTimeGenerator generator, final SaveCurrentTimePort saveCurrentTimePort ) {
 
         this.generator = generator;
         this.saveCurrentTimePort = saveCurrentTimePort;

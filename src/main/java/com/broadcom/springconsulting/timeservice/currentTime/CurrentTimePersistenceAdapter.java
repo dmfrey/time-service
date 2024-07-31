@@ -1,16 +1,17 @@
-package com.broadcom.springconsulting.timeservice.currentTime.adapters.out.persistence;
+package com.broadcom.springconsulting.timeservice.currentTime;
 
-import com.broadcom.springconsulting.timeservice.currentTime.application.ports.out.SaveCurrentTime;
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.UUID;
 
-@Component
-class CurrentTimePersistenceAdapter implements SaveCurrentTime {
+@SecondaryAdapter
+@Repository
+class CurrentTimePersistenceAdapter implements SaveCurrentTimePort {
 
     private static final Logger log = LoggerFactory.getLogger( CurrentTimePersistenceAdapter.class );
 

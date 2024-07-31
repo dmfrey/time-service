@@ -1,4 +1,4 @@
-package com.broadcom.springconsulting.timeservice.currentTime.adapters.out.persistence;
+package com.broadcom.springconsulting.timeservice.currentTime;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;

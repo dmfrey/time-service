@@ -1,4 +1,4 @@
-package com.broadcom.springconsulting.timeservice.currentTime.adapters.out.persistence;
+package com.broadcom.springconsulting.timeservice.currentTime;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

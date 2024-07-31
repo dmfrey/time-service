@@ -1,4 +1,4 @@
-package com.broadcom.springconsulting.timeservice.currentTime.adapters.out.persistence;
+package com.broadcom.springconsulting.timeservice.currentTime;
 
 import com.broadcom.springconsulting.timeservice.TestcontainersConfiguration;
 import org.junit.jupiter.api.DisplayName;

@@ -1,6 +1,6 @@
-package com.broadcom.springconsulting.timeservice.currentTime.adapters.in.endpoint;
+package com.broadcom.springconsulting.timeservice.currentTime;
 
-import com.broadcom.springconsulting.timeservice.currentTime.application.ports.in.CurrentTimeUseCase;
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.Instant;
 import java.util.Map;
 
+@PrimaryAdapter
 @RestController
 class TimeEndpoint {
 
