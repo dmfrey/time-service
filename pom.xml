@@ -12,7 +12,7 @@
 
 	<groupId>com.broadcom.spring-consulting</groupId>
 	<artifactId>time-service</artifactId>
-	<version>3.0.0</version>
+	<version>3.0.1</version>
 	<name>time-service</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -237,6 +237,7 @@
 						<artifactId>spring-boot-maven-plugin</artifactId>
 						<configuration>
 							<image>
+								<builder>paketobuildpacks/builder:tiny</builder>
 								<name>ghcr.io/dmfrey/${project.artifactId}:${project.version}</name>
 								<publish>true</publish>
 							</image>
