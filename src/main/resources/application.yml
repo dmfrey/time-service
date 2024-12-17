@@ -1,8 +1,12 @@
-logging.level:
-  liquibase: info
-  org.springframework.jdbc: info
-  org.springframework.web: info
-  com.broadcom.springconsulting.timeservice: debug
+logging:
+  structured:
+    format:
+      console: logstash
+  level:
+    liquibase: info
+    org.springframework.jdbc: info
+    org.springframework.web: info
+    com.broadcom.springconsulting.timeservice: debug
 
 spring:
 
