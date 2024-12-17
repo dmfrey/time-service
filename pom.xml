@@ -237,7 +237,6 @@
 						<artifactId>spring-boot-maven-plugin</artifactId>
 						<configuration>
 							<image>
-								<builder>paketobuildpacks/builder:tiny</builder>
 								<name>ghcr.io/dmfrey/${project.artifactId}:${project.version}</name>
 								<publish>true</publish>
 							</image>
