@@ -84,8 +84,8 @@ management:
       service-name: ${spring.application.name}
       custom-tags:
         instance_guid: ${CF_INSTANCE_GUID}
-      api-token: 1111-23this-45is-678a-faketoken # this is a fake token since wavefront lib expects a token, though this is not used for authentication to collector for ingestion
-      uri: http://telegraf.hub-collector.service.internal:8765
+    api-token: 1111-23this-45is-678a-faketoken # this is a fake token since wavefront lib expects a token, though this is not used for authentication to collector for ingestion
+    uri: http://telegraf.hub-collector.service.internal:8765
     metrics:
       export:
         enabled: false

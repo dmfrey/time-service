@@ -1,7 +1,7 @@
 ---
 applications:
   - name: time-service
-    path: ./time-service.jar
+    path: ./time-service-3.2.0.jar
     random-route: true
     env:
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 21.+ } }'
