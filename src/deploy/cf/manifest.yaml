@@ -1,0 +1,15 @@
+---
+applications:
+  - name: time-service
+    path: ./time-service.jar
+    random-route: true
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 21.+ } }'
+      MANAGEMENT_PROMETHEUS_METRICS_EXPORT_ENABLED: false
+      MANAGEMENT_DYNATRACE_METRICS_EXPORT_ENABLED: true
+      MANAGEMENT_WAVEFRONT_METRICS_EXPORT_ENABLED: true
+    buildpacks:
+      - java_buildpack_offline
+    services:
+      - name: time-service-pg
+      - name: dynatrace-service

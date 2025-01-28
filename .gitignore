@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+
+src/deploy/cf/time-service.jar

@@ -61,13 +61,16 @@ management:
           client:
             requests: true
 
-#  prometheus:
-#    metrics:
-#      export:
-#        step: 10s
+  prometheus:
+    metrics:
+      export:
+        enabled: false
+        step: 10s
+
   dynatrace:
     metrics:
       export:
+        enabled: false
         v2:
           metric-key-prefix: ${spring.application.name}
           enrich-with-dynatrace-metadata: true
@@ -75,10 +78,22 @@ management:
             stack: "homelab-k8s-001"
             region: "dmf-u"
 
+  wavefront:
+    application:
+      name: ${spring.application.name}
+      service-name: ${spring.application.name}
+      custom-tags:
+        instance_guid: ${CF_INSTANCE_GUID}
+      api-token: 1111-23this-45is-678a-faketoken # this is a fake token since wavefront lib expects a token, though this is not used for authentication to collector for ingestion
+      uri: http://telegraf.hub-collector.service.internal:8765
+    metrics:
+      export:
+        enabled: false
+
   tracing:
-    enabled: true
+    enabled: false
     sampling:
-      probability: 1.0
+      probability: 0.5
 
 #  otlp:
 #    metrics:
@@ -86,3 +101,11 @@ management:
 #        url: http://otelcol-dm-opentelemetry-collector.monitor.svc.cluster.local:4318/v1/metrics
 #    tracing:
 #      endpoint: http://otelcol-dm-opentelemetry-collector.monitor.svc.cluster.local:4318/v1/traces
+
+info:
+  app:
+    version: "@project.version@"
+
+  spring:
+    boot:
+      version: "@project.parent.version@"
