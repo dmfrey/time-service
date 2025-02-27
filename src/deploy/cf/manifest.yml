@@ -1,0 +1,15 @@
+---
+applications:
+- name: sandbox-time-service
+  buildpack: java_buildpack_offline
+  path: ..\..\target\time-service-3.2.1.jar
+  timeout: 180
+  env:
+    JAVA_OPTS: '-XX:MaxDirectMemorySize=256M -XX:MaxMetaspaceSize=300M --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED'
+    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 17.+ } }'
+    SPRING_PROFILES_ACTIVE: sandbox
+    MANAGEMENT_DYNATRACE_METRICS_EXPORT_ENABLED: true
+  services:
+    - name: dynatrace-service
+  routes:
+    - route: sandbox-time-service.apps.luse1-pcf.paas.pubcloud.aig.net
