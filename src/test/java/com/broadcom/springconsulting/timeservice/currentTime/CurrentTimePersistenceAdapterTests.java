@@ -1,13 +1,12 @@
 package com.broadcom.springconsulting.timeservice.currentTime;
 
-import com.broadcom.springconsulting.timeservice.TestcontainersConfiguration;
+//import com.broadcom.springconsulting.timeservice.TestcontainersConfiguration;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Import;
 import org.springframework.data.relational.core.mapping.event.BeforeConvertCallback;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -16,14 +15,14 @@ import java.util.UUID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
-@Import( TestcontainersConfiguration.class )
+//@Import( TestcontainersConfiguration.class )
 @SpringBootTest
 public class CurrentTimePersistenceAdapterTests {
 
     @Autowired
     CurrentTimePersistenceAdapter subject;
 
-    @MockBean
+    @MockitoBean
     BeforeConvertCallback<CurrentTimeRecord> mockBeforeConvertCallback;
 
 //    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>( "postgres:15-alpine" )

@@ -1,12 +1,14 @@
 logging:
-  structured:
-    format:
-      console: logstash
+#  structured:
+#    format:
+#      console: logstash
   level:
     liquibase: info
     org.springframework.jdbc: info
-    org.springframework.web: info
+    org.springframework.web: debug
     com.broadcom.springconsulting.timeservice: debug
+  pattern:
+    level: welcome-message:%X{welcome-message} %5p
 
 spring:
 
@@ -17,13 +19,16 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
-  docker:
-    compose:
-      lifecycle-management: start_only
+  datasource:
+    url: jdbc:h2:mem:test-db
 
-  threads:
-    virtual:
-      enabled: true
+#  docker:
+#    compose:
+#      lifecycle-management: start_only
+
+#  threads:
+#    virtual:
+#      enabled: true
 
 management:
 
@@ -61,16 +66,16 @@ management:
           client:
             requests: true
 
-  prometheus:
-    metrics:
-      export:
-        enabled: false
-        step: 10s
+#  prometheus:
+#    metrics:
+#      export:
+#        enabled: false
+#        step: 10s
 
   dynatrace:
     metrics:
       export:
-        enabled: false
+        enabled: true
         v2:
           metric-key-prefix: ${spring.application.name}
           enrich-with-dynatrace-metadata: true
@@ -78,20 +83,20 @@ management:
             stack: "homelab-k8s-001"
             region: "dmf-u"
 
-  wavefront:
-    application:
-      name: ${spring.application.name}
-      service-name: ${spring.application.name}
-      custom-tags:
-        instance_guid: ${CF_INSTANCE_GUID}
-    api-token: 1111-23this-45is-678a-faketoken # this is a fake token since wavefront lib expects a token, though this is not used for authentication to collector for ingestion
-    uri: http://telegraf.hub-collector.service.internal:8765
-    metrics:
-      export:
-        enabled: false
+#  wavefront:
+#    application:
+#      name: ${spring.application.name}
+#      service-name: ${spring.application.name}
+#      custom-tags:
+#        instance_guid: ${CF_INSTANCE_GUID}
+#    api-token: 1111-23this-45is-678a-faketoken # this is a fake token since wavefront lib expects a token, though this is not used for authentication to collector for ingestion
+#    uri: http://telegraf.hub-collector.service.internal:8765
+#    metrics:
+#      export:
+#        enabled: false
 
   tracing:
-    enabled: false
+    enabled: true
     sampling:
       probability: 0.5
 

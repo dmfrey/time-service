@@ -8,14 +8,14 @@ import java.sql.Timestamp;
 import java.util.Objects;
 import java.util.UUID;
 
-@Table( "time_log" )
+@Table( "TIME_LOG" )
 class CurrentTimeRecord {
 
     @Id
-    @Column( "id" )
+    @Column( "ID" )
     UUID id;
 
-    @Column( "time" )
+    @Column( "TIME" )
     Timestamp value;
 
     public CurrentTimeRecord() { }

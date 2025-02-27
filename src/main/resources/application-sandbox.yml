@@ -1,0 +1,15 @@
+logging:
+  structured:
+    format:
+      console: logstash
+    json:
+      add:
+        environment: luse1-pcf.paas.pubcloud.aig.net
+#      customizer: com.broadcom.springconsulting.config.logging.MyLoggerCustomizer
+  level:
+    liquibase: info
+    org.springframework.jdbc: info
+    org.springframework.web: debug
+    com.broadcom.springconsulting.timeservice: debug
+  pattern:
+    level: region:%X{region} %5p

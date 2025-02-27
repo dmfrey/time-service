@@ -4,6 +4,7 @@ import com.broadcom.springconsulting.timeservice.services.CurrentTimeGenerator;
 import org.jmolecules.architecture.hexagonal.Application;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.stereotype.Service;
 
 @Application
@@ -26,6 +27,8 @@ class CurrentTimeService implements CurrentTimeUseCase {
     public CurrentTimeModel execute( final CurrentTimeCommand command ) throws Exception {
         log.debug( "execute : enter" );
 
+        MDC.put( "welcome-message", "Hi Sudhakar!" );
+
         var currentTime = this.generator.calculate();
         log.debug( "execute : generated new time [{}]", currentTime );
 
@@ -36,6 +39,8 @@ class CurrentTimeService implements CurrentTimeUseCase {
             log.debug( "execute : exit" );
             return new CurrentTimeModel( currentTime );
         }
+
+        MDC.remove( "welcome-message" );
 
         log.debug( "execute : error" );
         throw new Exception( "An error occurred saving the current time to the database" );
