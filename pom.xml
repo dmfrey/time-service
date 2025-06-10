@@ -12,7 +12,7 @@
 
 	<groupId>com.broadcom.spring-consulting</groupId>
 	<artifactId>time-service</artifactId>
-	<version>3.2.2</version>
+	<version>3.2.3</version>
 	<name>time-service</name>
 	<description>Demo project for Spring Boot</description>
 
