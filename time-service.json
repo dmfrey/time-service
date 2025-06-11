@@ -1,0 +1,43 @@
+{
+  "slug" : "time-service",
+  "coordinates" : [
+    "com.broadcom.spring-consulting:time-service"
+  ],
+  "repositoryUrl" : "https://github.com/dmfrey/time-service",
+  "rewrite" : {
+    "3.2.x" : {
+      "recipes" : [ ],
+      "nextRewrite" : "3.3.x",
+      "requirements" : {
+        "supportedJavaVersions" : {
+          "major" : 21,
+          "minor" : 17
+        },
+        "supportedGenerations" : {
+          "micrometer-tracing" : "1.4.x",
+          "spring-modulith" : "1.4.x",
+          "spring-boot" : "3.4.x",
+          "wavefront-spring-boot" : "3.2.x",
+          "micrometer" : "1.14.x",
+          "datasource-micrometer": "1.1.x",
+          "datasource-micrometer-spring-boot": "1.1.x"
+        },
+        "excludedArtifacts" : [ ]
+      }
+    },
+    "3.3.x": {
+      "recipes" : [ ],
+      "nextRewrite" : null,
+      "requirements" : {
+        "supportedJavaVersions": {
+          "major": 21,
+          "minor": 17
+        },
+        "supportedGenerations": {
+          "spring-boot": "3.5.x"
+        },
+        "excludedArtifacts": []
+      }
+    }
+  }
+}
